@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     *{
+        margin:0%;
+        padding:0%;
+        border:0%;
+        background-color: white;
+        
+     }
+     .main{
+        height: 100vh;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(rgb(50, 197, 255), rgb(255, 197, 50));
+        border-radius:  80vh; ;
+     }
+     #cal{
+        height: vh;
+        width: 60vh;
+        font-size: 300%;
+        margin-bottom: 0vh;
+        color:white;
+        background-color:Black;
+     }
+     #text{
+        
+        background-color:whitesmoke;
+        font-size: xx-large;
+        margin-bottom: 2%;
+        height: 40px;
+        text-align: right;
+        width: 520px;
+     }
+     .buttons{
+        font-size: 60px;
+        width: 520px;
+        color: white;
+        background-color:black;
+        background-color: blanchedalmond;
+    }
+    .row button{
+        background-color: white;
+        padding: 8px;
+        border-radius: 18%;
+        flex: 2;
+        font-size: xx-large;
+        padding: 8px;
+        border-radius: 18%;
+        width: 78px;
+        height: 79px;
+        margin: 9px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
+
+        
+    }
+    .buttons button:hover{
+        color:white;
+        background-color: black;
+    }
+        
+
+          
+    </style>
+</head>
+<body>
+    <div class="main">
+        <center><h1 id="cal">CALCULATOR</h1></center>
+            <center><input type="text" id="text" placeholder="0" style="font-align: left;"/></center>
+            <div class="buttons">
+                <div class="row">
+                    <center><div class="row2">
+                      <button onclick="backspace()">⬅</button>
+                      <button onclick="clearText()">CL</button>
+                      <button onclick="appendText('%')">%</button>
+                      <button onclick="appendText('/')">/</button>
+                </div> </center> 
+                <center><div class="row">
+                    <button onclick="appendText('7')">7</button>
+                    <button onclick="appendText('8')">8</button>
+                    <button onclick="appendText('9')">9</button>
+                    <button onclick="appendText('x')">x</button>
+                </div></center>
+                <center><div class="row">
+                    <button onclick="appendText('4')">4</button>
+                    <button onclick="appendText('5')">5</button>
+                    <button onclick="appendText('6')">6</button>
+                    <button onclick="appendText('-')">-</button>
+                </div></center>
+                <center><div class="row">
+                    <button onclick="appendText('1')">1</button>
+                    <button onclick="appendText('2')">2</button>
+                    <button onclick="appendText('3')">3</button>
+                    <button onclick="appendText('+')">+</button>
+                </div></center>
+                <center><div class="row">
+                    <button onclick="appendText('00')">00</button>
+                    <button onclick="appendText('0')">0</button>
+                    <button onclick="appendText('.')">.</button>
+                    <button onclick="calculate()">=</button>
+                </div></center>
+            </div>    
+    </div>       
+</body>
+<script>
+    function appendText(value){
+        document.getElementById('text').value += value
+    }
+    function clearText(){
+        document.getElementById('text').value='';
+    }
+    function backspace(){
+       var text = document.getElementById('text').value;
+       document.getElementById('text').value=text.slice(0,-1);
+    }
+    function calculate(){
+        var text = document.getElementById('text').value;
+        result=eval(text);
+        document.getElementById('text').value=result;
+    }
+</script>
+</html>
+
